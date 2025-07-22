@@ -1,0 +1,284 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+ 
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+ 
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+ 
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+ 
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+ 
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+ 
+    --primary: 222.2 47.4% 11.2%;
+    --primary-foreground: 210 40% 98%;
+ 
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222.2 47.4% 11.2%;
+ 
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+ 
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+ 
+    --ring: 215 20.2% 65.1%;
+ 
+    --radius: 0.5rem;
+
+    /* Tag semantic colors */
+    --tag-red: 0 84% 85%;
+    --tag-red-foreground: 0 84% 20%;
+    --tag-blue: 217 92% 76%;
+    --tag-blue-foreground: 217 92% 25%;
+    --tag-yellow: 48 96% 76%;
+    --tag-yellow-foreground: 48 96% 25%;
+    --tag-green: 142 76% 73%;
+    --tag-green-foreground: 142 76% 25%;
+    --tag-purple: 267 85% 81%;
+    --tag-purple-foreground: 267 85% 25%;
+  }
+ 
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+ 
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+ 
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+ 
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+ 
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+ 
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+ 
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+ 
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+ 
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 85.7% 97.3%;
+
+    --ring: 217.2 32.6% 17.5%;
+    
+    /* Dark mode tag colors */
+    --tag-red: 0 84% 35%;
+    --tag-red-foreground: 0 84% 85%;
+    --tag-blue: 217 92% 45%;
+    --tag-blue-foreground: 217 92% 85%;
+    --tag-yellow: 48 96% 45%;
+    --tag-yellow-foreground: 48 96% 85%;
+    --tag-green: 142 76% 45%;
+    --tag-green-foreground: 142 76% 85%;
+    --tag-purple: 267 85% 55%;
+    --tag-purple-foreground: 267 85% 85%;
+  }
+}
+ 
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Custom Calendar styles */
+.custom-calendar {
+  width: 100%;
+}
+
+.custom-calendar .rdp-months {
+  width: 100%;
+}
+
+.custom-calendar .rdp-month {
+  width: 100%;
+}
+
+.custom-calendar .rdp-table {
+  width: 100%;
+}
+
+/* Calendar day styles */
+.calendar-day-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.calendar-day-with-task::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  background-color: hsl(var(--primary));
+  border-radius: 50%;
+}
+
+.calendar-day-button {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Task styles */
+.task-circle {
+  width: 20px;
+  height: 20px;
+  min-width: 20px;
+  border-radius: 50%;
+  border: 1.5px solid hsl(var(--border));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: hsl(var(--background));
+}
+
+.task-circle.completed {
+  background-color: hsl(var(--muted));
+  border-color: hsl(var(--muted-foreground) / 0.3);
+}
+
+/* Tag color classes using semantic tokens */
+.bg-tag-red {
+  background-color: hsl(var(--tag-red));
+  color: hsl(var(--tag-red-foreground));
+}
+
+.bg-tag-blue {
+  background-color: hsl(var(--tag-blue));
+  color: hsl(var(--tag-blue-foreground));
+}
+
+.bg-tag-yellow {
+  background-color: hsl(var(--tag-yellow));
+  color: hsl(var(--tag-yellow-foreground));
+}
+
+.bg-tag-green {
+  background-color: hsl(var(--tag-green));
+  color: hsl(var(--tag-green-foreground));
+}
+
+.bg-tag-purple {
+  background-color: hsl(var(--tag-purple));
+  color: hsl(var(--tag-purple-foreground));
+}
+
+/* Calendar page animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.calendar-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.selected-date-tasks {
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+/* Calendar cell hover effect */
+.calendar-cell {
+  transition: all 0.2s ease;
+}
+
+.calendar-cell:hover {
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  z-index: 10;
+}
+
+/* Fix for calendar popover and overlapping elements */
+.rdp {
+  z-index: 50 !important;
+}
+
+/* Ensure popover content appears above other elements */
+[data-radix-popper-content-wrapper] {
+  z-index: 50 !important;
+}
+
+/* Fix for task metadata to prevent overlapping */
+.task-metadata {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Ensure task actions don't overlap */
+.task-actions {
+  display: flex;
+  gap: 4px;
+}
+
+/* Sticky Note Colors */
+.bg-amber-300 {
+  background-color: #fcd34d;
+}
+
+.bg-orange-400 {
+  background-color: #fb923c;
+}
+
+.bg-emerald-400 {
+  background-color: #34d399;
+}
+
+.bg-purple-400 {
+  background-color: #c084fc;
+}
+
+.bg-blue-400 {
+  background-color: #60a5fa;
+}
+
+/* Existing sticky note color fallbacks */
+.bg-yellow-50 {
+  background-color: #fefce8;
+}
+
+.bg-blue-50 {
+  background-color: #eff6ff;
+}
+
+.bg-green-50 {
+  background-color: #f0fdf4;
+}
+
+.bg-purple-50 {
+  background-color: #faf5ff;
+}
+
+.bg-red-50 {
+  background-color: #fef2f2;
+}

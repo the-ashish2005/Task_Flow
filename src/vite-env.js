@@ -1,0 +1,1 @@
+// Vite client types - converted to JS comment
